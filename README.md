@@ -14,14 +14,14 @@ Nathan Verrill, June 2026
 
 This capstone is the final stage of a five-part series. The earlier challenges are Jupyter notebooks in the [`notebooks/`](../notebooks/) folder:
 
-| Challenge | Notebook                                            |
-| :-------- | :-------------------------------------------------- |
-| 1         | [`challenge1.ipynb`](../notebooks/challenge1.ipynb) |
-| 2         | [`challenge2.ipynb`](../notebooks/challenge2.ipynb) |
-| 3         | [`challenge3.ipynb`](../notebooks/challenge3.ipynb) |
-| 4         | [`challenge4.ipynb`](../notebooks/challenge4.ipynb) |
-| 5         | [`challenge5.ipynb`](../notebooks/challenge5.ipynb) |
-| **6**     | **Project ReadyNow!** (this directory)              |
+| Challenge | Notebook                                           |
+| :-------- | :------------------------------------------------- |
+| 1         | [`challenge1.ipynb`](./notebooks/challenge1.ipynb) |
+| 2         | [`challenge2.ipynb`](./notebooks/challenge2.ipynb) |
+| 3         | [`challenge3.ipynb`](./notebooks/challenge3.ipynb) |
+| 4         | [`challenge4.ipynb`](./notebooks/challenge4.ipynb) |
+| 5         | [`challenge5.ipynb`](./notebooks/challenge5.ipynb) |
+| **6**     | **Project ReadyNow!** (this directory)             |
 
 ---
 
