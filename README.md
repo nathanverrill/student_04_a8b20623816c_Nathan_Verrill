@@ -29,7 +29,7 @@ This capstone is the final stage of a five-part series. The earlier challenges a
 
 ![Project ReadyNow Overview](./images/ui_and_logs.png)
 
-**Project ReadyNow!** is an emergency-response assistant built for the **Federal Emergency Management Agency (FEMA)** use case. It runs on the **Google Agent Development Kit (ADK)**, is served through a **FastAPI** backend, and ships in **Docker** for reproducible local runs.
+**Project ReadyNow!** is an emergency-response assistant built for a **Federal Emergency Management Agency (FEMA)** use case. Powered by the **Google Agent Development Kit (ADK)** and served through a **FastAPI** backend, it ships in **Docker** for reproducible local runs and deploys to **Vertex AI Agent Engine** for managed, hosted operation.
 
 The system acts as an authoritative, empathetic, rapid-response assistant during natural disasters. Given a user's location and situation, it:
 
@@ -119,6 +119,48 @@ The backend API is available directly at `http://localhost:8008/api/chat`.
 - `Tornado warning near Joplin, MO`
 - `Weather in Kirkwood, MO`
 - `Evacuation routes from 1316 Missouri Ave`
+
+---
+
+## ☁️ Deploy to Vertex AI Agent Engine
+
+For a managed, hosted deployment (instead of local Docker), `backend/deploy.py`
+pushes the agent to **Vertex AI Agent Engine**.
+
+### Prerequisites
+
+- A Google Cloud project with the **Vertex AI** and **Cloud Storage** APIs enabled
+- Authenticated `gcloud` / Application Default Credentials:
+  ```bash
+  gcloud auth application-default login
+  ```
+- Python dependencies installed (`pip install -r backend/requirements.txt`)
+
+### Configure
+
+The script reads your project from the `GOOGLE_CLOUD_PROJECT` environment variable
+and deploys to `us-central1`:
+
+```bash
+export GOOGLE_CLOUD_PROJECT="your-gcp-project-id"
+```
+
+It will automatically create a staging bucket named
+`<project>-agent-staging-bucket` if one doesn't already exist.
+
+### Deploy
+
+```bash
+cd backend
+python deploy.py
+```
+
+On success the script prints the deployed **Agent Engine resource name**, which you
+can use to invoke the hosted agent.
+
+> **Note:** Local Docker (`docker compose up`) and Agent Engine are two independent
+> ways to run ReadyNow — use Docker for fast local iteration, Agent Engine for a
+> managed cloud deployment.
 
 ---
 
